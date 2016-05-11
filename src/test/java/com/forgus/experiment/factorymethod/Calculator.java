@@ -14,15 +14,17 @@
  * limitations under the License.
  */
 
-package com.forgus.experiment.simplefactory;
+package com.forgus.experiment.factorymethod;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
- * 简单工厂模式
+ * 工厂方法模式
  *
  * @author Forgus
  * @since 2016-05-11
@@ -31,23 +33,27 @@ public class Calculator {
 
     private double mockNumberA;
     private double mockNumberB;
-    private String operate;
+    private OperationFactory operationFactory;
 
     @Before
     public void initInput() {
         mockNumberA = Math.random()*100;
         mockNumberB = Math.random()*100 + 1;
-        String[] strs = {"+","-","*","/"};
-        operate = strs[new Random().nextInt(strs.length)];
+        List<OperationFactory> operate = new ArrayList<OperationFactory>();
+        operate.add(new AddFactory());
+        operate.add(new SubFactory());
+        operate.add(new MulFactory());
+        operate.add(new DivFactory());
+        operationFactory = operate.get(new Random().nextInt(operate.size()));
     }
 
     @Test
     public void operateTest() {
-        Operation operation = OperationFactory.createOperate(operate);
+        Operation operation = operationFactory.createOperate();
         operation.setNumberA(mockNumberA);
         operation.setNumberB(mockNumberB);
         double result = operation.getResult();
-        System.out.println(mockNumberA + " " + operate + " " + mockNumberB + " " + "=" + " " + result);
+        System.out.println(mockNumberA + " " + operation.getSymbol() + " " + mockNumberB + " " + "=" + " " + result);
     }
 
 }
