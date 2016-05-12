@@ -14,37 +14,28 @@
  * limitations under the License.
  */
 
-package com.forgus.experiment.proxy;
+package com.forgus.experiment.dynamicproxy;
 
-import org.junit.Before;
 import org.junit.Test;
 
+import java.lang.reflect.Proxy;
+
 /**
- * 房产中介
+ * 增删改查
  *
  * @author Forgus
  * @since 2016-05-12
  */
-public class Agency {
+public class CURD {
 
-    private Buyer mockBuyer;
-    private House mockHouse;
-    private Proxy mockProxy;
-
-    @Before
-    public void init() {
-        mockHouse = new House("铂金时代6-2-2201");
-        mockProxy = new Proxy(mockHouse);
-        mockBuyer = new Buyer(mockHouse,"小明");
-    }
 
     @Test
-    public void buyHouseTest() {
-        System.out.println("小明亲自买房子：");
-        mockBuyer.buyHouse();
-        System.out.println("小明通过中介买房子：");
-        mockProxy.buyHouse();
-        System.out.println(System.getProperty("user.dir"));
+    public void curdTest() {
+        UserDao userDao = new UserDaoImpl();
+        LogInteceptor li = new LogInteceptor(userDao);
+        UserDao proxy = (UserDao)Proxy.newProxyInstance(userDao.getClass().getClassLoader(),userDao.getClass().getInterfaces(),li);
+        proxy.save();
+        proxy.delete();
     }
 
 }

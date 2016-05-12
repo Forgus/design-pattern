@@ -14,37 +14,19 @@
  * limitations under the License.
  */
 
-package com.forgus.experiment.proxy;
-
-import org.junit.Before;
-import org.junit.Test;
+package com.forgus.experiment.dynamicproxy;
 
 /**
- * 房产中介
- *
  * @author Forgus
  * @since 2016-05-12
  */
-public class Agency {
+public class UserDaoImpl implements UserDao {
 
-    private Buyer mockBuyer;
-    private House mockHouse;
-    private Proxy mockProxy;
-
-    @Before
-    public void init() {
-        mockHouse = new House("铂金时代6-2-2201");
-        mockProxy = new Proxy(mockHouse);
-        mockBuyer = new Buyer(mockHouse,"小明");
+    public void save() {
+        System.out.println("保存用户信息");
     }
 
-    @Test
-    public void buyHouseTest() {
-        System.out.println("小明亲自买房子：");
-        mockBuyer.buyHouse();
-        System.out.println("小明通过中介买房子：");
-        mockProxy.buyHouse();
-        System.out.println(System.getProperty("user.dir"));
+    public void delete() {
+        System.out.println("删除用户信息");
     }
-
 }
