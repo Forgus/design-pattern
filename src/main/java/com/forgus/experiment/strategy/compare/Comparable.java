@@ -14,41 +14,14 @@
  * limitations under the License.
  */
 
-package com.forgus.experiment.strategy;
-
-import lombok.Getter;
-import lombok.Setter;
-
+package com.forgus.experiment.strategy.compare;
 
 /**
- * 狗
+ * 比较行为
  *
  * @author Forgus
  * @since 2016-05-13
  */
-
-@Getter
-@Setter
-public class Dog implements Comparable<Dog> {
-
-    /**
-     * 默认比较策略
-     */
-    private Comparator comparator = new DogHeightComparator();
-    private int height;
-    private int weight;
-
-    public Dog(int height,int weight) {
-        this.height = height;
-        this.weight = weight;
-    }
-
-    public int compareTo(Dog o) {
-        return comparator.compare(this,o);
-    }
-
-    @Override
-    public String toString() {
-        return height + "";
-    }
+public interface Comparable<T> {
+    int compareTo(T o);
 }

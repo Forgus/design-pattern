@@ -16,6 +16,8 @@
 
 package com.forgus.experiment.strategy;
 
+import com.forgus.experiment.strategy.compare.DataSorter;
+import com.forgus.experiment.strategy.compare.Dog;
 import org.junit.Test;
 
 /**
@@ -28,7 +30,7 @@ public class Client {
 
     @Test
     public void sortTest() {
-        Dog[] a = {new Dog(4,23),new Dog(2,22),new Dog(3,56)};
+        Dog[] a = {new Dog(4, 23), new Dog(2, 22), new Dog(3, 56)};
         DataSorter.sort(a);
         DataSorter.p(a);
 

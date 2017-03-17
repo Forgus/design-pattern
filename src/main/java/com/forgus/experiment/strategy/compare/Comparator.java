@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.forgus.experiment.strategy;
+package com.forgus.experiment.strategy.compare;
 
 /**
  * 比较策略
