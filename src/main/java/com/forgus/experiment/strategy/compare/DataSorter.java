@@ -16,8 +16,6 @@
 
 package com.forgus.experiment.strategy.compare;
 
-import java.util.Arrays;
-
 /**
  * @author Forgus
  * @since 2016-05-13
@@ -25,16 +23,15 @@ import java.util.Arrays;
 public class DataSorter {
 
     public static void sort(Comparable[] a) {
-//        for (int i=a.length; i>0; i--) {
-//            for (int j=0; j<i-1; j++) {
-//                Comparable o1 = a[j];
-//                Comparable o2 = a[j+1];
-//                if(o1.compareTo(o2) == 1) {
-//                    swap(a, j, j+1);
-//                }
-//            }
-//        }
-        Arrays.sort(a);
+        for (int i = a.length; i > 0; i--) {
+            for (int j = 0; j < i - 1; j++) {
+                Comparable o1 = a[j];
+                Comparable o2 = a[j + 1];
+                if (o1.compareTo(o2) == 1) {
+                    swap(a, j, j + 1);
+                }
+            }
+        }
     }
 
 
@@ -45,9 +42,8 @@ public class DataSorter {
     }
 
 
-
     public static void p(Object[] a) {
-        for (int i=0; i<a.length; i++) {
+        for (int i = 0; i < a.length; i++) {
             System.out.print(a[i] + " ");
         }
     }
