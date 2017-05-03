@@ -20,27 +20,10 @@ package com.forgus.experiment.proxy;
  * @author Forgus
  * @since 2016-05-12
  */
-public class Proxy implements Buy {
+public class Proxy implements Subject {
 
-    private Buyer buyer;
+    @Override
+    public void request() {
 
-    public Proxy(House house) {
-        buyer = new Buyer(house,"小明");
-    }
-
-    public void buyHouse() {
-        before();
-        buyer.buyHouse();
-        after();
-    }
-
-    private void after() {
-        System.out.println("一切搞定，中介把房产证和钥匙送到小明手里。");
-    }
-
-    private void before() {
-        System.out.println("中介开始帮小明办理购房手续……");
-        System.out.println("中介帮小明开具各种证明……");
-        System.out.println("中介帮小明填写各种表格……");
     }
 }
