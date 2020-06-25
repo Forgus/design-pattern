@@ -17,7 +17,6 @@ public class Customer implements Observer {
         this.name = name;
     }
 
-    @Override
     public void update(Observable o, Object arg) {
         if (o instanceof Book) {
             this.book = (Book) o;

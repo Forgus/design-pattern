@@ -1,5 +1,7 @@
 package com.forgus.experiment.command.appliance;
 
+import com.forgus.experiment.command.base.Command;
+
 /**
  * @author Wenbin Chen
  */

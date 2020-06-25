@@ -1,4 +1,4 @@
-package com.forgus.experiment.command.appliance;
+package com.forgus.experiment.command.base;
 
 /**
  * @author Wenbin Chen

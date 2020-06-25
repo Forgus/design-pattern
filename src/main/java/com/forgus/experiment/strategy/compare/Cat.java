@@ -1,13 +1,15 @@
 package com.forgus.experiment.strategy.compare;
 
 
+import java.util.Comparator;
+
 /**
  * @author Wenbin Chen
  */
-public class Cat implements java.lang.Comparable<Cat> {
+public class Cat implements Comparable<Cat> {
 
     private double weight;
-    private java.util.Comparator<Cat> comparator = new WeightComparator();
+    private Comparator<Cat> comparator = new WeightComparator();
 
     public Cat(double weight) {
         this.weight = weight;

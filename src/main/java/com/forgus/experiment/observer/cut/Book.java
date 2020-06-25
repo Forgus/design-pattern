@@ -1,10 +1,13 @@
 package com.forgus.experiment.observer.cut;
 
+import lombok.Getter;
+
 import java.util.Observable;
 
 /**
  * @author Forgus
  */
+@Getter
 public class Book extends Observable {
 
     private final String name;
@@ -13,10 +16,6 @@ public class Book extends Observable {
     public Book(String name, double price) {
         this.name = name;
         this.price = price;
-    }
-
-    public double getPrice() {
-        return price;
     }
 
     public void setPrice(double price) {
@@ -32,7 +31,4 @@ public class Book extends Observable {
         notifyObservers();
     }
 
-    public String getName() {
-        return name;
-    }
 }
