@@ -22,8 +22,8 @@ package com.forgus.experiment.factorymethod;
  * @author Forgus
  * @since 2016-05-11
  */
-public interface OperationFactory {
+public abstract class OperationFactory {
 
-    Operation createOperate();
+    public abstract Operation createOperate();
 
 }

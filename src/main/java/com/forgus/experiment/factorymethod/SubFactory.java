@@ -20,7 +20,7 @@ package com.forgus.experiment.factorymethod;
  * @author Forgus
  * @since 2016-05-11
  */
-public class SubFactory implements OperationFactory {
+public class SubFactory extends OperationFactory {
     public Operation createOperate() {
         return new OperationSub();
     }
